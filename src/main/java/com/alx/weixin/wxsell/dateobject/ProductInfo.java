@@ -1,6 +1,8 @@
 package com.alx.weixin.wxsell.dateobject;
 
 import lombok.Data;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,6 +16,8 @@ import java.util.Date;
  */
 @Entity
 @Data
+@DynamicInsert
+@DynamicUpdate
 public class ProductInfo {
 
     @Id

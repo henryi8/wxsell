@@ -3,6 +3,7 @@ package com.alx.weixin.wxsell.dateobject;
 import com.alx.weixin.wxsell.util.OrderStatusEnum;
 import com.alx.weixin.wxsell.util.PayStatusEnum;
 import lombok.Data;
+import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
@@ -19,6 +20,7 @@ import java.util.Date;
 @Entity
 @Data
 @DynamicUpdate
+@DynamicInsert
 public class OrderDetail {
 
     /** 订单id*/

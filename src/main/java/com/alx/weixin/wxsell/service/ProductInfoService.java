@@ -29,7 +29,9 @@ public interface ProductInfoService {
     //加库存
     void increaseStock(List<CartDto> cartDtoList);
 
-    //减库存
+    /**
+     * 减库存
+     */
     void decreaseStock(List<CartDto> cartDtoList);
 
 }

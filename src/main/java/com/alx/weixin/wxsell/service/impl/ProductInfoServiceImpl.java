@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -47,8 +48,17 @@ public class ProductInfoServiceImpl implements ProductInfoService {
     }
 
     @Override
+    @Transactional
     public void increaseStock(List<CartDto> cartDtoList) {
-//        productInfoRepository
+        for (CartDto cartDto: cartDtoList){
+            ProductInfo productInfo = productInfoRepository.getOne(cartDto.getProductId());
+            if(productInfo == null){
+                throw new SellException(ExceptionEnum.ERROR_PRODUCT_NOT_EXIST);
+            }
+            Integer stock = productInfo.getProductStock() + cartDto.getProductQuantity();
+            productInfo.setProductStock(stock);
+            productInfoRepository.save(productInfo);
+        }
     }
 
     @Override
@@ -59,11 +69,13 @@ public class ProductInfoServiceImpl implements ProductInfoService {
             if(one == null){
                 throw new SellException(ExceptionEnum.ERROR_PRODUCT_NOT_EXIST);
             }
+            //TODO  （会产生超卖情况，涉及到多线程，解决：redis的锁机制问题）
             int num = one.getProductStock() - cartDto.getProductQuantity();
             if(num < 0){
                 throw new SellException(ExceptionEnum.ERROR_PRODUCT_STOCK);
             }
             one.setProductStock(num);
+            one.setUpdateTime(new Date());
             productInfoRepository.save(one);
         }
     }
