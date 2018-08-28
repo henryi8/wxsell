@@ -12,5 +12,6 @@ spring:
   jackson:
     default-property-inclusion: non_null
 server:
-  servlet:
-    context-path: /sell
+  port: 80
+#  servlet:
+#    context-path: /sell
