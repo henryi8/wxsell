@@ -1,5 +1,6 @@
 package com.alx.weixin.wechat.controller;
 
+import com.alx.weixin.wechat.constant.WechatConstant;
 import com.alx.weixin.wechat.dispatcher.EventDispatcher;
 import com.alx.weixin.wechat.dispatcher.MsgDispatcher;
 import com.alx.weixin.wechat.util.MessageUtil;
@@ -73,7 +74,7 @@ public class WeChatController {
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
 
-        System.out.println("这是 post 方法！");
+        System.out.println("这是 post 方法！"+ WechatConstant.getAppId());
         try{
             String s = "";
             Map<String, String> map= MessageUtil.parseXml(request);
