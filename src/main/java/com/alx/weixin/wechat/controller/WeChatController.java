@@ -1,5 +1,6 @@
 package com.alx.weixin.wechat.controller;
 
+import com.alx.weixin.wechat.common.WeChatTask;
 import com.alx.weixin.wechat.constant.WechatConstant;
 import com.alx.weixin.wechat.dispatcher.EventDispatcher;
 import com.alx.weixin.wechat.dispatcher.MsgDispatcher;
@@ -74,8 +75,14 @@ public class WeChatController {
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
 
+
+
         System.out.println("这是 post 方法！"+ WechatConstant.getAppId());
         try{
+            //查询token，设置入session
+            WeChatTask w = new WeChatTask();
+            w.getToken_getTicket();
+
             String s = "";
             Map<String, String> map= MessageUtil.parseXml(request);
             System.out.println("============================="+map.toString());

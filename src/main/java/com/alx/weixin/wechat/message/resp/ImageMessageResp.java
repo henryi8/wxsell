@@ -9,7 +9,7 @@ import lombok.Data;
  * @date 2016 年 3 月 8 日 下午 5:58:10
  */
 @Data
-public class ImageMessageResp {
+public class ImageMessageResp extends BaseMessageResp{
 
     private Image Image;
 

@@ -32,7 +32,20 @@ public class MsgDispatcher {
             txtmsg.setFromUserName(mpid);
             txtmsg.setCreateTime(new Date().getTime());
             txtmsg.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_TEXT);
-            txtmsg.setContent("1213：小仙女，我喜欢你！");
+//            txtmsg.setContent("1213：小仙女，我喜欢你！");
+
+            String content=map.get("Content");
+            if("1".equals(content)){
+                txtmsg.setContent("你好，你发送的内容是 1！");
+            }else if("2".equals(content)){
+                txtmsg.setContent("你好，你发送的内容是 2！");
+            }else if("3".equals(content)){
+                txtmsg.setContent("你好，你发送的内容是 3！");
+            }else if("4".equals(content)){
+                txtmsg.setContent("<a href=\"http://www.baidu.com\">崔用志博客</a>");
+            }else{
+                txtmsg.setContent("你好，欢您的光临！");
+            }
             return MessageUtil.textMessageRespToXml(txtmsg);
         }
 
@@ -60,10 +73,12 @@ public class MsgDispatcher {
 
         if (map.get("MsgType").equals(MessageUtil.REQ_MESSAGE_TYPE_LINK)) { // 链接消息
             System.out.println("==============这是链接消息！");
+            return "";
         }
 
         if (map.get("MsgType").equals(MessageUtil.REQ_MESSAGE_TYPE_LOCATION)) { // 位置消息
             System.out.println("==============这是位置消息！");
+            return "";
         }
 
         if (map.get("MsgType").equals(MessageUtil.REQ_MESSAGE_TYPE_VIDEO)) { // 视频消息

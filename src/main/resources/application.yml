@@ -25,3 +25,5 @@ wechat:
   appsecret: cc8259a36e34308fb60796e129ed564e
   #获取 token 的 url
   tokenUrl: https://api.weixin.qq.com/cgi-bin/token
+  #永久多媒体文件上传 url
+  mediaUrl: http://file.api.weixin.qq.com/cgi-bin/media/upload?access_token=
