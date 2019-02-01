@@ -1,0 +1,16 @@
+package ${package.Service};
+
+import com.alx.weixin.common.base.BaseService;
+import ${package.Entity}.${entity};
+
+/**
+ * <p>
+ * ${table.comment}  服务实现类
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+public interface ${entity}Service extends BaseService<${entity}> {
+	
+}
