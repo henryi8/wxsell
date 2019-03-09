@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
+
 import java.io.Serializable;
 
 /**
@@ -19,7 +21,7 @@ public class OrderMaster extends Model<OrderMaster> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId("order_id")
+    @TableId(value = "order_id",type = IdType.INPUT)
     private String orderId;
     /**
      * 买家名字

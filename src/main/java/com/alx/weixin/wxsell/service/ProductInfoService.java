@@ -1,6 +1,8 @@
 package com.alx.weixin.wxsell.service;
 
 import com.alx.weixin.common.base.BaseService;
+import com.alx.weixin.common.dto.CartDTO;
+import com.alx.weixin.common.dto.OrderDTO;
 import com.alx.weixin.wxsell.entity.ProductInfo;
 
 import java.util.List;
@@ -19,5 +21,11 @@ public interface ProductInfoService extends BaseService<ProductInfo> {
      * @return
      */
     List<ProductInfo> findUpAll();
+
+    //加库存
+    void increaseStock(List<CartDTO> cartDTOList);
+
+    //减库存
+    void decreaseStock(List<CartDTO> cartDTOList);
 
 }

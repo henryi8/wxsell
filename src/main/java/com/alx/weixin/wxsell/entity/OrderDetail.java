@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
+
 import java.io.Serializable;
 
 /**
@@ -19,7 +21,7 @@ public class OrderDetail extends Model<OrderDetail> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId("detail_id")
+    @TableId(value = "detail_id",type = IdType.INPUT)
     private String detailId;
     @TableField("order_id")
     private String orderId;
